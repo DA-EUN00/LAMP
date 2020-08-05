@@ -3,6 +3,14 @@ I refer to this homepage.
 
 https://www.digitalocean.com/community/tutorials/how-to-install-linux-apache-mysql-php-lamp-stack-on-ubuntu-20-04
 
+List of names that can be replaced
+1. your_domain
+2. server_domain_or_IP      //your server’s domain name or IP address
+3. index.php
+4. example_user     //User created by you
+5. password         //Password of database created by you
+6. example_database         //Database created by you
+7. todo_list            //Table of databases created by you
 
 ---------------------------------------your_domain.conf-----------------------------------------------
 /etc/apache2/sites-available/your_domain.conf
