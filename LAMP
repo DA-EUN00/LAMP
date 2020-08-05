@@ -2,3 +2,18 @@ How To Install Linux, Apache, MySQL, PHP (LAMP) stack on Ubuntu 20.04
 I refer to this homepage.
 
 https://www.digitalocean.com/community/tutorials/how-to-install-linux-apache-mysql-php-lamp-stack-on-ubuntu-20-04
+
+
+---------------------------------------your_domain.conf-----------------------------------------------
+/etc/apache2/sites-available/your_domain.conf
+
+<VirtualHost *:80>
+    ServerName your_domain
+    ServerAlias www.your_domain 
+    ServerAdmin webmaster@localhost
+    DocumentRoot /var/www/your_domain
+    ErrorLog ${APACHE_LOG_DIR}/error.log
+    CustomLog ${APACHE_LOG_DIR}/access.log combined
+</VirtualHost>
+
+------------------------------------------------------------------------------------------------------
