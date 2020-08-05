@@ -17,3 +17,59 @@ https://www.digitalocean.com/community/tutorials/how-to-install-linux-apache-mys
 </VirtualHost>
 
 ------------------------------------------------------------------------------------------------------
+
+-------------------------------------------index.html--------------------------------------------------
+/var/www/your_domain/index.html
+
+<html>
+  <head>
+    <title>your_domain website</title>
+  </head>
+  <body>
+    <h1>Hello World!</h1>
+
+    <p>This is the landing page of <strong>your_domain</strong>.</p>
+  </body>
+</html>
+
+------------------------------------------------------------------------------------------------------
+
+--------------------------------------------dir.conf--------------------------------------------------
+/etc/apache2/mods-enabled/dir.conf
+
+<IfModule mod_dir.c>
+        DirectoryIndex index.php index.html index.cgi index.pl index.xhtml index.htm
+</IfModule>
+
+------------------------------------------------------------------------------------------------------
+
+-------------------------------------------info.php---------------------------------------------------
+/var/www/your_domain/info.php
+
+<?php
+phpinfo();
+
+------------------------------------------------------------------------------------------------------
+
+--------------------------------------------list.php--------------------------------------------------
+/var/www/your_domain/todo_list.php
+
+<?php
+$user = "example_user";
+$password = "password";
+$database = "example_database";
+$table = "todo_list";
+
+try {
+  $db = new PDO("mysql:host=localhost;dbname=$database", $user, $password);
+  echo "<h2>TODO</h2><ol>";
+  foreach($db->query("SELECT content FROM $table") as $row) {
+    echo "<li>" . $row['content'] . "</li>";
+  }
+  echo "</ol>";
+} catch (PDOException $e) {
+    print "Error!: " . $e->getMessage() . "<br/>";
+    die();
+}
+
+-----------------------------------------------------------------------------------------------------
